@@ -11,10 +11,19 @@ importers:
       '@aws-sdk/client-dynamodb':
         specifier: ^3.658.1
         version: 3.658.1
+      '@aws-sdk/lib-dynamodb':
+        specifier: ^3.658.1
+        version: 3.658.1(@aws-sdk/client-dynamodb@3.658.1)
+      uuid:
+        specifier: ^10.0.0
+        version: 10.0.0
     devDependencies:
       '@types/aws-lambda':
         specifier: ^8.10.145
         version: 8.10.145
+      '@types/uuid':
+        specifier: ^10.0.0
+        version: 10.0.0
       aws-lambda:
         specifier: ^1.0.7
         version: 1.0.7
@@ -92,6 +101,12 @@ packages:
     resolution: {integrity: sha512-CzuRWMj/xtN9p9eP915nlPmlyniTzke732Ow/M60++gGgB3W+RtZyFftw3TEx+NzNhd1tH54dEcGiWdiNaBz3Q==}
     engines: {node: '>=16.0.0'}
 
+  '@aws-sdk/lib-dynamodb@3.658.1':
+    resolution: {integrity: sha512-IU/PTANYfmTCt/gB5tM6XYvHXtBGTgNDW5kE5iNte5+VLN3OPXAzlg8Tk00b3sgERyOufiJ5nyerSCSsjyM5WQ==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      '@aws-sdk/client-dynamodb': ^3.658.1
+
   '@aws-sdk/middleware-endpoint-discovery@3.654.0':
     resolution: {integrity: sha512-oHmSZYWsoGSYTjrohu/EFbtthGZOr9qIU8ewDzzhI2ceCEvCy6w7Vd/Ov1pG6C3faNEGAGNZynOmYJBeF2XIOA==}
     engines: {node: '>=16.0.0'}
@@ -125,6 +140,12 @@ packages:
   '@aws-sdk/types@3.654.0':
     resolution: {integrity: sha512-VWvbED3SV+10QJIcmU/PKjsKilsTV16d1I7/on4bvD/jo1qGeMXqLDBSen3ks/tuvXZF/mFc7ZW/W2DiLVtO7A==}
     engines: {node: '>=16.0.0'}
+
+  '@aws-sdk/util-dynamodb@3.658.1':
+    resolution: {integrity: sha512-lzlnis+35a2OhGZlVJvM3/30iIVoP2cIv5Bkw1F2nkM6Pr+1NOd3XvYhCY1Ud5zWtV6HUSptzessvUPqJTMfjQ==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      '@aws-sdk/client-dynamodb': ^3.658.1
 
   '@aws-sdk/util-endpoints@3.654.0':
     resolution: {integrity: sha512-i902fcBknHs0Irgdpi62+QMvzxE+bczvILXigYrlHL4+PiEnlMVpni5L5W1qCkNZXf8AaMrSBuR1NZAGp6UOUw==}
@@ -317,6 +338,9 @@ packages:
   '@types/aws-lambda@8.10.145':
     resolution: {integrity: sha512-dtByW6WiFk5W5Jfgz1VM+YPA21xMXTuSFoLYIDY0L44jDLLflVPtZkYuu3/YxpGcvjzKFBZLU+GyKjR0HOYtyw==}
 
+  '@types/uuid@10.0.0':
+    resolution: {integrity: sha512-7gqG38EyHgyP1S+7+xomFtL+ZNHcKv6DwNaCZmJmo1vgMugyF3TCnXVg4t1uk89mLNwnLtnY3TpOpCOyp1/xHQ==}
+
   argparse@1.0.10:
     resolution: {integrity: sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==}
 
@@ -483,6 +507,10 @@ packages:
 
   util@0.12.5:
     resolution: {integrity: sha512-kZf/K6hEIrWHI6XqOFUiiMa+79wE/D8Q+NCNAWclkyg3b4d2k7s0QGepNjiABc+aR3N1PAyHL7p6UcLY6LmrnA==}
+
+  uuid@10.0.0:
+    resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
+    hasBin: true
 
   uuid@8.0.0:
     resolution: {integrity: sha512-jOXGuXZAWdsTH7eZLtyXMqUb9EcWMGZNbL9YcGBJl4MH4nrxHmZJhEHvyLFrkxo+28uLb/NYRcStH48fnD0Vzw==}
@@ -821,6 +849,15 @@ snapshots:
       mnemonist: 0.38.3
       tslib: 2.7.0
 
+  '@aws-sdk/lib-dynamodb@3.658.1(@aws-sdk/client-dynamodb@3.658.1)':
+    dependencies:
+      '@aws-sdk/client-dynamodb': 3.658.1
+      '@aws-sdk/util-dynamodb': 3.658.1(@aws-sdk/client-dynamodb@3.658.1)
+      '@smithy/core': 2.4.6
+      '@smithy/smithy-client': 3.3.5
+      '@smithy/types': 3.4.2
+      tslib: 2.7.0
+
   '@aws-sdk/middleware-endpoint-discovery@3.654.0':
     dependencies:
       '@aws-sdk/endpoint-cache': 3.572.0
@@ -879,6 +916,11 @@ snapshots:
   '@aws-sdk/types@3.654.0':
     dependencies:
       '@smithy/types': 3.4.2
+      tslib: 2.7.0
+
+  '@aws-sdk/util-dynamodb@3.658.1(@aws-sdk/client-dynamodb@3.658.1)':
+    dependencies:
+      '@aws-sdk/client-dynamodb': 3.658.1
       tslib: 2.7.0
 
   '@aws-sdk/util-endpoints@3.654.0':
@@ -1181,6 +1223,8 @@ snapshots:
 
   '@types/aws-lambda@8.10.145': {}
 
+  '@types/uuid@10.0.0': {}
+
   argparse@1.0.10:
     dependencies:
       sprintf-js: 1.0.3
@@ -1356,6 +1400,8 @@ snapshots:
       is-generator-function: 1.0.10
       is-typed-array: 1.1.13
       which-typed-array: 1.1.15
+
+  uuid@10.0.0: {}
 
   uuid@8.0.0: {}
 
